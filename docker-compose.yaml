@@ -9,6 +9,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 12345
       POSTGRES_DB: todolist
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: 5432
     restart: always
     ports:
     - "5432:5432"
