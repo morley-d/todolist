@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': env.str("POSTGRES_DB", "todolist"),
         'USER': env.str("POSTGRES_USER", "postgres"),
         'PASSWORD': env.str("POSTGRES_PASSWORD", "12345"),
-        'HOST': env.str("POSTGRES_HOST", "localhost"),
+        'HOST': env.str("POSTGRES_HOST", "db"),
         'PORT': env.str("POSTGRES_PORT", "5432"),
     }
 }
