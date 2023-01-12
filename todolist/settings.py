@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'todolist.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env.str("POSTGRES_DB", "todolist"),
+        'NAME': env.str("POSTGRES_DB", "db_todolist"),
         'USER': env.str("POSTGRES_USER", "postgres"),
         'PASSWORD': env.str("POSTGRES_PASSWORD", "12345"),
         'HOST': env.str("POSTGRES_HOST", "db"),
