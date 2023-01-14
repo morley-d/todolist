@@ -15,10 +15,22 @@ services:
       migrations:
         condition: service_completed_successfully
     environment:
+      DEBUG: $DEBUG
       SECRET_KEY: $SECRET_KEY
       ALLOWED_HOSTS: $ALLOWED_HOSTS
+      SOCIAL_AUTH_VK_OAUTH2_KEY: $SOCIAL_AUTH_VK_OAUTH2_KEY
+      SOCIAL_AUTH_VK_OAUTH2_SECRET: $SOCIAL_AUTH_VK_OAUTH2_SECRET
+      DATABASE_URL: $DATABASE_URL
+      BOT_TOKEN: $BOT_TOKEN
   migrations:
     image: morley007/todolist:$GITHUB_REF_NAME-$GITHUB_RUN_ID
+    environment:
+      DEBUG: $DEBUG
+      SECRET_KEY: $SECRET_KEY
+      ALLOWED_HOSTS: $ALLOWED_HOSTS
+      SOCIAL_AUTH_VK_OAUTH2_KEY: $SOCIAL_AUTH_VK_OAUTH2_KEY
+      SOCIAL_AUTH_VK_OAUTH2_SECRET: $SOCIAL_AUTH_VK_OAUTH2_SECRET
+      BOT_TOKEN: $BOT_TOKEN
     depends_on:
       db:
         condition: service_healthy
