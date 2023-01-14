@@ -23,7 +23,7 @@ services:
       DATABASE_URL: $DATABASE_URL
       BOT_TOKEN: $BOT_TOKEN
   bot:
-    image: specially4/todolist:$GITHUB_REF_NAME-$GITHUB_RUN_ID
+    image: morley007/todolist:$GITHUB_REF_NAME-$GITHUB_RUN_ID
     depends_on:
       db:
         condition: service_healthy
