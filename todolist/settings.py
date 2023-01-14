@@ -80,14 +80,7 @@ WSGI_APPLICATION = 'todolist.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env.str("POSTGRES_DB", "db_todolist"),
-        'USER': env.str("POSTGRES_USER", "postgres"),
-        'PASSWORD': env.str("POSTGRES_PASSWORD", "12345"),
-        'HOST': env.str("POSTGRES_HOST", "db"),
-        'PORT': env.str("POSTGRES_PORT", "5432"),
-    }
+    'default': env.db()
 }
 
 # Password validation
