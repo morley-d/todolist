@@ -15,30 +15,8 @@ services:
       migrations:
         condition: service_completed_successfully
     environment:
-      DEBUG: $DEBUG
       SECRET_KEY: $SECRET_KEY
       ALLOWED_HOSTS: $ALLOWED_HOSTS
-      SOCIAL_AUTH_VK_OAUTH2_KEY: $SOCIAL_AUTH_VK_OAUTH2_KEY
-      SOCIAL_AUTH_VK_OAUTH2_SECRET: $SOCIAL_AUTH_VK_OAUTH2_SECRET
-      DATABASE_URL: $DATABASE_URL
-      BOT_TOKEN: $BOT_TOKEN
-  bot:
-    image: morley007/todolist:$GITHUB_REF_NAME-$GITHUB_RUN_ID
-    depends_on:
-      db:
-        condition: service_healthy
-      migrations:
-        condition: service_completed_successfully
-    environment:
-      DEBUG: $DEBUG
-      SECRET_KEY: $SECRET_KEY
-      ALLOWED_HOSTS: $ALLOWED_HOSTS
-      SOCIAL_AUTH_VK_OAUTH2_KEY: $SOCIAL_AUTH_VK_OAUTH2_KEY
-      SOCIAL_AUTH_VK_OAUTH2_SECRET: $SOCIAL_AUTH_VK_OAUTH2_SECRET
-      DATABASE_URL: $DATABASE_URL
-      BOT_TOKEN: $BOT_TOKEN
-    command: >
-      bash -c 'python3 manage.py runbot'
   migrations:
     image: morley007/todolist:$GITHUB_REF_NAME-$GITHUB_RUN_ID
     depends_on:
@@ -50,10 +28,6 @@ services:
       DEBUG: $DEBUG
       SECRET_KEY: $SECRET_KEY
       ALLOWED_HOSTS: $ALLOWED_HOSTS
-      SOCIAL_AUTH_VK_OAUTH2_KEY: $SOCIAL_AUTH_VK_OAUTH2_KEY
-      SOCIAL_AUTH_VK_OAUTH2_SECRET: $SOCIAL_AUTH_VK_OAUTH2_SECRET
-      DATABASE_URL: $DATABASE_URL
-      BOT_TOKEN: $BOT_TOKEN
   db:
     image: postgres:latest
     environment:
@@ -65,8 +39,8 @@ services:
     restart: always
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER}" ]
-      interval: 5s
-      timeout: 5s
+      interval: 7s
+      timeout: 7s
       retries: 5
     volumes:
       - ./pg_data:/var/lib/postgresql/data
