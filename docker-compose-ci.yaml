@@ -24,8 +24,6 @@ services:
         condition: service_healthy
     command: >
       bash -c 'python manage.py migrate'
-    env_file:
-      - .env
   db:
     image: postgres:latest
     environment:
