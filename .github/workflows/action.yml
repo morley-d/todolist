@@ -47,4 +47,5 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
             cd todolist
+            echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker-compose down
             echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker-compose up -d
