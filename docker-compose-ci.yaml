@@ -10,7 +10,7 @@ services:
   api:
     image: morley007/todolist:$GITHUB_REF_NAME-$GITHUB_RUN_ID
     depends_on:
-      postgres:
+      db:
         condition: service_healthy
       migrations:
         condition: service_completed_successfully
@@ -25,7 +25,7 @@ services:
   bot:
     image: morley007/todolist:$GITHUB_REF_NAME-$GITHUB_RUN_ID
     depends_on:
-      postgres:
+      db:
         condition: service_healthy
       migrations:
         condition: service_completed_successfully
@@ -42,7 +42,7 @@ services:
   migrations:
     image: morley007/todolist:$GITHUB_REF_NAME-$GITHUB_RUN_ID
     depends_on:
-      postgres:
+      db:
         condition: service_healthy
     command: >
       bash -c 'python manage.py migrate'
