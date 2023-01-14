@@ -21,14 +21,14 @@ services:
       - "8000:8000"
     volumes:
       - ./.env:/app/.env
-  migrations:
-    build: .
-    depends_on:
-      db:
-        condition: service_healthy
-    volumes:
-      - ./.env:/app/.env
-    command: python manage.py migrate
+#  migrations:
+#    build: .
+#    depends_on:
+#      db:
+#        condition: service_healthy
+#    volumes:
+#      - ./.env:/app/.env
+#    command: python manage.py migrate
   db:
     image: postgres:latest
     env_file:
