@@ -37,7 +37,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           source: "deploy/docker-compose.yaml,deploy/.env"
-          target: "lesson_38"
+          target: "todolist"
           strip_components: 1
       - name: run docker-compose
         uses: appleboy/ssh-action@master
@@ -46,5 +46,5 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            cd lesson_38
+            cd todolist
             echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker-compose up -d
