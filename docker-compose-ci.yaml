@@ -32,6 +32,14 @@ services:
     volumes:
       - ./.env:/app/.env
     command: python manage.py migrate
+    environment:
+      DEBUG: $DEBUG
+      SECRET_KEY: $SECRET_KEY
+      ALLOWED_HOSTS: $ALLOWED_HOSTS
+#      SOCIAL_AUTH_VK_OAUTH2_KEY: $SOCIAL_AUTH_VK_OAUTH2_KEY
+#      SOCIAL_AUTH_VK_OAUTH2_SECRET: $SOCIAL_AUTH_VK_OAUTH2_SECRET
+      DATABASE_URL: $DATABASE_URL
+#      BOT_TOKEN: $BOT_TOKEN
   postgres:
     image: postgres:latest
     environment:
