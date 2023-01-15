@@ -19,7 +19,7 @@ env = environ.Env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-ENV_FILE_PATH = BASE_DIR.parent.joinpath(".env")
+ENV_FILE_PATH = BASE_DIR.joinpath(".env")
 
 environ.Env.read_env(ENV_FILE_PATH)
 
@@ -90,10 +90,10 @@ WSGI_APPLICATION = 'todolist.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env.str("POSTGRES_DB", "db_todolist"),
+        'NAME': env.str("POSTGRES_DB", "postgres"),
         'USER': env.str("POSTGRES_USER", "postgres"),
-        'PASSWORD': env.str("POSTGRES_PASSWORD", "12345"),
-        'HOST': env.str("POSTGRES_HOST", "db"),
+        'PASSWORD': env.str("POSTGRES_PASSWORD", "postgres"),
+        'HOST': env.str("POSTGRES_HOST", "localhost"),
         'PORT': env.str("POSTGRES_PORT", "5432"),
     }
 }
