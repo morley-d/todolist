@@ -38,8 +38,8 @@ class BotGoal:
         self.tg_user.save(update_fields=['verification_code'])
         self.tg_client.send_message(
             chat_id=self.msg.chat.id, text=f'Подтвердите, пожалуйста, свой аккаунт. '
-                                           f'Для подтверждения необходимо ввести код: '
-                                           f'{self.tg_user.verification_code} на сайте: skotenkov.tk'
+                                           f'Для подтверждения введите код: '
+                                           f'{self.tg_user.verification_code} на сайте: morley-d.ml'
         )
 
     def create_goal(self) -> None:
@@ -55,7 +55,7 @@ class BotGoal:
         elif '/create' == self.msg.text and categories.count() == 0:
             self.tg_client.send_message(
                 chat_id=self.msg.chat.id,
-                text=f"Категорий нет создайте новую\n"
+                text=f"Категорий нет, создайте новую!\n"
                      f"(Введите: 'create_cat Название категории')"
             )
         elif 'create_cat' in self.msg.text:
@@ -69,7 +69,7 @@ class BotGoal:
             category.save()
             self.tg_client.send_message(
                 chat_id=self.msg.chat.id,
-                text=f"Категория сохранена, для того что добавить цель\n"
+                text=f"Категория сохранена, чтобы добавить цель\n"
                      f"(Введите: 'create_goal Название цели')"
             )
 
