@@ -14,9 +14,9 @@ from tests.factories import (
 @pytest.fixture
 def add_user(db) -> User:
     user = User.objects.create_user(
-        username='djohn',
-        email='djohn@gmail.com',
-        password='SuperPassword1022'
+        username='Leha',
+        email='alex@mail.ru',
+        password='strongpass'
     )
     return user
 
@@ -24,7 +24,7 @@ def add_user(db) -> User:
 @pytest.fixture
 def auth_user(add_user: User) -> APIClient:
     client = APIClient()
-    client.login(username='djohn', password='SuperPassword1022')
+    client.login(username='Leha', password='strongpass')
     return client
 
 
