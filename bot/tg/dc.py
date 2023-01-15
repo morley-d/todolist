@@ -30,16 +30,6 @@ class MessageChat:
         unknown = EXCLUDE
 
 
-# @dataclass
-# class MessageEntities:
-#     offset: int | None
-#     length: int
-#     type_: str = field(metadata={'data_key': 'type'})
-#
-#     class Meta:
-#         unknown = EXCLUDE
-
-
 @dataclass
 class Message:
     message_id: int
@@ -47,6 +37,7 @@ class Message:
     chat: MessageChat
     date: int
     text: str
+
     # entities: list[MessageEntities]
 
     class Meta:
@@ -82,5 +73,3 @@ class SendMessageResponse:
 
     class Meta:
         unknown = EXCLUDE
-
-
