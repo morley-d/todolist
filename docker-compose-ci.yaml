@@ -72,7 +72,7 @@ services:
       timeout: 5s
       retries: 5
     volumes:
-      - ./pg_data:/var/lib/postgresql/data
+      - pg_data:/var/lib/postgresql/data
 
 volumes:
   pg_data:
