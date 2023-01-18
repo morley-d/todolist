@@ -54,7 +54,7 @@ jobs:
             cd todolist
             echo ${{ secrets.SSH_PASSWORD }} | docker-compose down
             echo ${{ secrets.SSH_PASSWORD }} | docker-compose up --build -d
-      -name: clear after deploy
+      - name: clear after deploy
         if: always()
         uses: appleboy/ssh-action@master
         with:
