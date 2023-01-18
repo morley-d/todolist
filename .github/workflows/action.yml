@@ -19,7 +19,7 @@ jobs:
       DEBUG: ${{ secrets.DEBUG }}
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
       ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
-      POSTGRES_HOST: ${{ secrets.HOST }}
+      POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
       POSTGRES_PORT: ${{ secrets.PORT }}
       DB_USER: postgres
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
