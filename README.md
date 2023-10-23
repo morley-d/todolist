@@ -11,7 +11,7 @@
 ### Клонировать репозиторий
 
 ```sh
-git clone https://github.com/Specially4/todolist.git
+git clone https://github.com/morley-d/todolist.git
 ```
 
 ### Установка зависимостей
